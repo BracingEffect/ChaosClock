@@ -1,0 +1,10 @@
+exclude: [
+    LICENSE,
+    Resources,
+    Gemfile,
+    Gemfile.lock,
+    calendar.html,
+    clock.html,
+    container.html]
+sass:
+    style: :compressed
