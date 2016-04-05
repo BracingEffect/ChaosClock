@@ -1,2 +1,4 @@
-# Bracing Effect
-Website for bracingeffect.com
+Chaos Clock Website
+===================
+
+Source code for Chaos Clock website.
