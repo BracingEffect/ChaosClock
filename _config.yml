@@ -6,5 +6,6 @@ exclude: [
     calendar.html,
     clock.html,
     container.html]
+baseurl: /ChaosClock
 sass:
     style: :compressed
