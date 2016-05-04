@@ -26,10 +26,24 @@ if (isMobile) {
 
 jQuery(document).ready(function($) {
     $(function () {
-        $('[data-toggle="tooltip"]').tooltip({
-            container : 'body'
-        })
-    })
+        $('.gregorian-to-discordian-calendar [data-toggle="tooltip"]').tooltip({
+            container : '.gregorian-to-discordian-calendar'
+        });
+
+        $('.discordian-to-std-scale [data-toggle="tooltip"]').tooltip({
+            container : '.discordian-to-std-scale'
+        });
+    });
+
+    var updateNavbarTransparency = function() {
+        if($(window).scrollTop() > 0) {
+            $('.navbar-fixed-top').addClass('opaque');
+        } else {
+            $('.navbar-fixed-top').removeClass('opaque');
+        }
+    };
+    updateNavbarTransparency();
+    $(window).scroll(updateNavbarTransparency);
 
     var $document = $(document),
         $body = $('body'),

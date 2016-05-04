@@ -22,17 +22,32 @@
         }(document));
     </script>
 
-    <title>Bracing Effect</title>
+    <title>Chaos Clock</title>
 
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="images/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="images/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="images/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="images/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="Bracing Effect"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="images\mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="images\mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="images\mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="images\mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="images\mstile-310x310.png" />
 
     <style type="text/css">
 {% capture reset_css %}{% include css/reset.scss %}{% endcapture %}
 {{ reset_css | scssify }}
-    </style>
-    <style type="text/css">
-{% capture fonts_css %}{% include css/fonts.scss %}{% endcapture %}
-{{ fonts_css | scssify }}
     </style>
     <style type="text/css">
 {% capture owl_carousel_css %}{% include owl-carousel/owl.carousel.css %}{% endcapture %}
@@ -41,9 +56,6 @@
     <style type="text/css">
 {% capture owl_theme_css %}{% include owl-carousel/owl.theme.css %}{% endcapture %}
 {{ owl_theme_css | scssify }}
-    </style>
-    <style type="text/css">
-{% include css/bootstrap.min.css %}
     </style>
     <style type="text/css">
 {% capture style_css %}{% include css/style.scss %}{% endcapture %}
@@ -56,83 +68,110 @@
 
 </head>
 <body>
-<div id="contact">
-    <div class="content">
-        <div id="bracingeffect-column">
-            <div id="bracingeffect-logo-container">
-                <a id="bracingeffect-root-link" href="http://bracingeffect.com">
-                    <div id="bracingeffect-logo" class="background-image">
-                        <span class="spacer"></span>
-                    </div>
-                    <div id="bracingeffect-text">
-                        <h1 id="bracing-text">Bracing</h1>
-                        <h1 id="effect-text">Effect</h1>
-                    </div>
-                </a>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://bracingeffect.com">
+                <span class="accessibility-text">Bracing Effect Homepage</span>
+                <div id="bracingeffect-logo-light" class="background-image"></div>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/">Jurbly</a></li>
+                <li><a href="/Parsnip/">Parsnip</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#contact-modal">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div
+    id="contact-modal"
+    class="modal fade"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="contact-title">
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 id="contact-title" class="modal-title">
+            <span class="glyphicon glyphicon-user"></span> Contact Us
+        </h4>
+      </div>
+      <div class="modal-body">
+          <div class="text-center">
+          <p>
+          <a href="https://bitbucket.org/BracingEffect/chaosclock/issues/new">
+              <span class="glyphicon glyphicon-exclamation-sign"></span> Report an issue
+          </a>
+          </p>
+          <p>
+          <a href="mailto:support@bracingeffect.com">
+              <span class="glyphicon glyphicon-envelope"></span> Email us directly
+          </a>
+          </p>
+          </div>
+      </div><!-- /.modal-body -->
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="container">
+    <div id="iphone-slide" class="slide ratio-4x3">
+        <span class="spacer"></span>
+        <div class="content">
+            <div class="header" class="align-right">
+                <h1 class="title">Chaos Clock</h1>
             </div>
-            <div class="contact-method">
-                Contact us at <a id="bracingeffect-email-link" href="mailto:support@bracingeffect.com">support@bracingeffect.com</a>
+            <div class="text" class="align-right">
+                Date & time</a> measurement for
+                <a id="discordianism-wikipedia-link" href="http://en.wikipedia.org/wiki/Discordianism">Discordians</a>
             </div>
-            <div class="contact-method">
-                Report bugs/request features on <a id="bitbucket-issue-link" href="https://bitbucket.org/BracingEffect/chaosclock/issues/new">Bitbucket</a>
+            <div id="badge-container" class="align-right">
+                <a id="chaosclock-itunes-link" href="https://itunes.apple.com/us/app/chaos-clock/id977164677?ls=1&mt=8">
+                    <span class="accessibility-text">Download on the App Store</span>
+                    <div id="appstore-badge" class="background-image"><span class="spacer"></span></div></a>
             </div>
         </div>
-        <div id="parsnip-column">
-            <div id="parsnip-logo-container">
-                <a id="parsnip-link" href="http://bracingeffect.com/Parsnip/">
-                    <div id="parsnip-logo" class="background-image">
-                        <span class="spacer"></span>
-                    </div>
-                    <h1 id="parsnip-text">PARSNIP</h1>
-                </a>
+        <div id="iphone" class="background-image">
+            <div id="slides">
+                <div id="screenshot01" class="screenshot background-image"></div>
+                <div id="screenshot02" class="screenshot background-image"></div>
+                <div id="screenshot03" class="screenshot background-image"></div>
+                <div id="screenshot04" class="screenshot background-image"></div>
+                <div id="screenshot05" class="screenshot background-image"></div>
             </div>
-            <div class="parsnip-description">
-                Everyday OCR, for iPhone, iPad, and iPod Touch
-            </div>
+        </div>
+    </div>
+    <div id="watch-slide">
+        <div class="hr"></div>
+        <div class="content">
+            <div id="watch" class="background-image"></div>
+        </div>
+        <h1 class="title">Now on <span class="nowrap">Apple Watch</span></h1>
+        <div class="clear"></div>
+    </div>
+    <div id="reference">
+        <div class="hr"></div>
+        <div id="discordian-calendar">
+            {% include discordian_calendar.html %}
+        </div>
+        <div class="hr"></div>
+        <div id="discordian-clock">
+            {% include discordian_clock.html %}
         </div>
     </div>
 </div>
-<div id="chaos" class="slide ratio-4x3">
-    <span class="spacer"></span>
-    <div class="content">
-        <div id="header" class="float-right">
-            <div id="chaosclock-logo" class="background-image"><span class="spacer"></span></div>
-            <h1 id="title">Chaos Clock</h1>
-        </div>
-        <div id="text" class="float-right">
-            <a id="internal-calendar-link" href="#discordian-calendar">Date</a> &
-            <a id="internal-clock-link" href="#discordian-clock">time</a> measurement
-            for <a id="discordianism-wikipedia-link" href="http://en.wikipedia.org/wiki/Discordianism">Discordians</a>
-        </div>
-        <div id="badge-container" class="float-left-of-watch">
-            <a id="chaosclock-itunes-link" href="https://itunes.apple.com/us/app/chaos-clock/id977164677?ls=1&mt=8">
-                <span class="accessibility-text">Download on the App Store</span>
-                <div id="appstore-badge" class="background-image"><span class="spacer"></span></div></a>
-        </div>
-        <a id="internal-contact-link" class="float-left-of-watch" href="#">Contact us</a>
-    </div>
-    <div id="iphone" class="background-image">
-        <div id="slides">
-            <div id="screenshot01" class="screenshot background-image"></div>
-            <div id="screenshot02" class="screenshot background-image"></div>
-            <div id="screenshot03" class="screenshot background-image"></div>
-            <div id="screenshot04" class="screenshot background-image"></div>
-            <div id="screenshot05" class="screenshot background-image"></div>
-        </div>
-        <div id="watch" class="background-image"></div>
-    </div>
-</div>
-<div id="reference">
-    <div class="hr"></div>
-    <div id="discordian-calendar">
-        {% include discordian_calendar.html %}
-    </div>
-    <div class="hr"></div>
-    <div id="discordian-clock">
-        {% include discordian_clock.html %}
-    </div>
-</div>
-<div id="contact-scroll-spacer"></div>
+
 
 <script type="text/javascript">
 {% include js/jquery.min.js %}

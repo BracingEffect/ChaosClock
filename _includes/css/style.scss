@@ -1,116 +1,112 @@
 
-// $bracing_blue: #0080ff; // rgb(0,128,255)
-$bracing_blue: #0066cc; // rgb(0,102,204)
-// $parsnip_green: #40C000; // rgb(64,192,0)
-$parsnip_green: #309000; // rgb(64,192,0)
-$chaos_violet: #a00aa0; // rgb(160,10,160)
-$github_purple: #400440; // rgb(64,4,64)
-$software_background: #f7f8f9;
+@import "variables";
+@import "bootstrap";
+@import "mixins";
+
+$software_background: #000;
 $images_path: "images/";
 
-$normal_text: #f0f0f0;
-$subtle_text: #a0a0a0;
-$link_text: #a0a0a0;
-
 $contact_background_color: #f0f0f0;
-
-
-/****************************************
- * SASS mixins
- ****************************************/
-
-@mixin text-shadow($shadows...) {
-    -webkit-text-shadow: $shadows;
-    -moz-text-shadow: $shadows;
-    -o-text-shadow: $shadows;
-    text-shadow: $shadows;
-}
-
-@mixin box-shadow($shadows...) {
-    -webkit-box-shadow: $shadows;
-    -moz-box-shadow: $shadows;
-    -o-box-shadow: $shadows;
-    box-shadow: $shadows;
-}
-
-@mixin background-size($sizes...) {
-    -webkit-background-size: $sizes;
-    -moz-background-size: $sizes;
-    -o-background-size: $sizes;
-    background-size: $sizes;
-}
-
-@mixin border-radius($radius...) {
-    -moz-border-radius: $radius;
-    -khtml-border-radius: $radius;
-    -webkit-border-radius: $radius;
-    border-radius: $radius;
-}
-
-@mixin translateZ($z) {
-    -webkit-transform: translateZ(#{$z}px);
-    -moz-transform: translateZ(#{$z}px);
-    -o-transform: translateZ(#{$z}px);
-    -khtml-transform: translateZ(#{$z}px);
-    -ms-transform: translateZ(#{$z}px);
-    transform: translateZ(#{$z}px);
-}
-
-@mixin translateZScale($z) {
-    $scale: 1 + ($z * -1) / $perspective;
-    -webkit-transform: translateZ(#{$z}px) scale($scale);
-    -moz-transform: translateZ(#{$z}px) scale($scale);
-    -o-transform: translateZ(#{$z}px) scale($scale);
-    -khtml-transform: translateZ(#{$z}px) scale($scale);
-    -ms-transform: translateZ(#{$z}px) scale($scale);
-    transform: translateZ(#{$z}px) scale($scale);
-}
-
-@mixin transform($x...) {
-    -webkit-transform: $x;
-    -moz-transform: $x;
-    -o-transform: $x;
-    -khtml-transform: $x;
-    -ms-transform: $x;
-    transform: $x;
-}
 
 /****************************************
  * Global styles
  ****************************************/
 
-html {
-}
-
-body {
-}
-
 html,
 body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: $font-family-sans-serif;
     font-weight: 300;
     font-size: 16px;
 
-    margin: 0;
     padding: 0;
+    margin: 0;
     width: 100%;
     height:100%;
-    background-color: $contact_background_color;
+    background-color: $body-bg;
     color: $normal_text;
 }
 
 h1, h2, h3, h4, h5, h6 {
     color: #fff;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 300;
     font-variant: small-caps;
     padding: 0 0 0 0;
     margin: 0 0 0 0;
 }
 
+em {
+    font-style: italic;
+}
+
+.hr {
+    background-color: transparent;
+    border-top: 1px #303030 solid;
+    margin: 0 auto 0 auto;
+    padding-bottom: 5em;
+    width: 100px;
+}
+
+.btn-lg {
+    font-size: 1.25em;
+    font-weight: 300;
+    font-variant: small-caps;
+}
+
+
+.glyphicon {
+    vertical-align: -0.1em;
+}
+
+.modal {
+    h1, h2, h3, h4, h5, h6 {
+        color: #000;
+    }
+
+    .modal-dialog {
+        margin: 70px auto;
+    }
+
+    .modal-content {
+        background-color: #d0d0d0;
+
+        .modal-header {
+
+            background-color: #b0b0b0;
+            border-top-left-radius: $border-radius-large;
+            border-top-right-radius: $border-radius-large;
+            border-bottom: 0px solid transparent;
+
+            .close {
+                font-size: 1.5em;
+
+                span {
+                    vertical-align: middle;
+                }
+            }
+
+            .modal-title {
+                font-size: 1.25em;
+                font-weight: 300;
+                font-variant: small-caps;
+            }
+        }
+
+        .modal-body {
+        }
+
+        .modal-footer {
+            border-top: 0px solid transparent;
+        }
+    }
+}
+
 a {
     color: $link_text;
     text-decoration: underline;
+}
+
+.nowrap {
+    white-space: nowrap
 }
 
 .subtle {
@@ -141,7 +137,7 @@ a {
 }
 
 $tooltip_color: #000;
-$tooltip_background_color: #d0d0d0;
+$tooltip_background_color: #fff;
 
 .tooltip {
     font-size: 1.15em;
@@ -184,7 +180,86 @@ $tooltip_background_color: #d0d0d0;
 }
 
 /****************************************
- * Chaos slide
+ * Modal
+ ****************************************/
+
+.modal.fade .modal-dialog {
+    @include transform(scale(0.8));
+    opacity: 0;
+    @include transition(all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55));
+}
+
+.modal.fade.in .modal-dialog {
+    @include transform(scale(1));
+    opacity: 1;
+}
+
+/****************************************
+ * Header
+ ****************************************/
+
+.navbar-brand {
+    position: relative;
+    padding: 9px 15px;
+}
+
+.navbar-nav > li > a {
+    font-size: 120%;
+    font-weight: bold;
+}
+
+#bracingeffect-logo-light, #bracingeffect-logo-dark {
+    width: 174px;
+    height: 32px;
+}
+
+#bracingeffect-logo-dark {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    margin-top: -16px;
+}
+
+.navbar-fixed-top {
+    background-color: rgba(96, 96, 96, 0);
+    border-bottom: 0;
+
+    .navbar-header a.navbar-brand, .navbar-nav > li {
+        a {
+            color: $text-color;
+            text-decoration: none;
+        }
+
+        a:hover, a:focus {
+            color: $text-color;
+            opacity: 0.3;
+        }
+    }
+
+    #bracingeffect-logo-light {
+        opacity: 1;
+    }
+
+    #bracingeffect-logo-light:hover {
+        opacity: 0.3;
+    }
+
+    #bracingeffect-logo-dark {
+        opacity: 0;
+    }
+
+    @include transition(all 0.2s ease 0s);
+}
+
+.navbar-fixed-top.opaque {
+    background-color: rgba(96, 96, 96, 1);
+    @include box-shadow(0 0 32px rgba(0, 0, 0, 0.667));
+
+    @include transition(all 0.3s ease 0s);
+}
+
+/****************************************
+ * iPhone slide
  ****************************************/
 
 $badge_height: 40;
@@ -196,15 +271,15 @@ $margin_bottom: 32;
 $iphone_bezel_height: 92;
 $iphone_bezel_width: 24;
 $min_height: $iphone_height + $margin_top + $margin_bottom;
-$content_percent: 55;
+$content_percent: 52.5;
 $content_margin_right: 48;
 $content_margin_left: 215;
 
-#chaos {
-    overflow: hidden;
+#iphone-slide {
     border-top-right-radius: 1px; /* required for iOS zoom bug */
     border-top-left-radius: 1px; /* required for iOS zoom bug */
     z-index: 0;
+    margin-top: 75px;
     min-height: #{$min_height}px;
 
     .content {
@@ -217,42 +292,28 @@ $content_margin_left: 215;
 
         text-align: right;
 
-        .float-right {
+        .align-right {
             right: #{$content_margin_right}px;
         }
 
-        .float-left-of-watch {
-            right: #{$content_margin_left}px;
-        }
-
-        #header {
+        .header {
             position: absolute;
-            top: 20px;
+            top: #{$iphone_bezel_height * 0.7}px;
             white-space: nowrap;
             z-index: 1;
 
-            #title, #chaosclock-logo {
+            .title   {
                 display: inline-block;
                 font-size: 4.5em;
-            }
-
-            #title {
                 margin-right: 0;
-            }
-
-            #chaosclock-logo {
-                width: 1em;
-                height: 1em;
-                margin-right: 0.1em;
-                vertical-align: -0.15em;
             }
         }
 
-        #text {
+        .text {
             color: $normal_text;
             font-size: 20px;
             position: absolute;
-            top: 20px;
+            top: #{$iphone_bezel_height * 0.7}px;
             margin-top: 5.15em;
             width: (100 - (100 * 1.5 * $content_margin_right / $iphone_width)) * 1%;
             white-space: normal;
@@ -296,15 +357,6 @@ $content_margin_left: 215;
         }
     }
 
-    #watch {
-        position: absolute;
-        top: 300px;
-        left: -225px;
-        width: 276px;
-        height: 475px;
-        z-index: 200;
-    }
-
     #iphone {
         position: absolute;
         top: #{$margin_top}px;
@@ -343,20 +395,51 @@ $content_margin_left: 215;
 }
 
 /****************************************
+ * Watch slide
+ ****************************************/
+
+#watch-slide {
+    background-color: #000;
+    overflow-x: visible;
+    padding-top: 6em;
+
+    h1 {
+        font-size: 3em;
+        margin-left: 45%;
+        margin-top: 1em;
+    }
+
+    .content {
+        float: left;
+        overflow-x: visible;
+        width: 40%;
+
+        #watch {
+            float: right;
+            width: 276px;
+            height: 475px;
+            margin-right: 5%;
+            z-index: 200;
+        }
+    }
+}
+
+
+/****************************************
  * Discordian Calendar and Clock
  ****************************************/
 
- #reference {
+#reference {
     background-color: #000;
     overflow-x: hidden;
     padding-top: 6em;
 
-    .hr {
-        background-color: #000;
-        border-top: 1px #666 solid;
-        margin: 0 auto 0 auto;
-        padding-bottom: 5em;
-        width: 100px;
+    .chaosclock-logo {
+        display: inline-block;
+        width: 56px;
+        height: 56px;
+        margin-right: 0.1em;
+        vertical-align: -0.15em;
     }
 
     #discordian-calendar,
@@ -364,145 +447,40 @@ $content_margin_left: 215;
         max-width: 768px;
         margin: 0 auto 0 auto;
         padding-bottom: 1em;
+
+        .discordian-calendar,
+        .discordian-clock {
+
+            > .text-center {
+                padding: 2.25em 0 0.5em 0;
+            }
+        }
     }
 }
 
 /****************************************
  * Contact info
  ****************************************/
-#contact,
-#contact-scroll-spacer {
-    padding-top: 18em;
-}
 
-#contact-scroll-spacer {
-    background-color: transparent;
-    width: 10px;
-    z-index: 0;
-}
+#contact-modal {
 
-#contact {
-    h1, h2, h3, h4, h5, h6 {
-        font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    }
+    .modal-body {
+        color: #000;
+        font-size: 2.5em;
+        padding-top: 0.75em;
 
-    overflow: visible;
-    background-color: $contact_background_color;
-    color: #000;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
-
-    .content {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        padding-top: 3em;
-        text-align: center;
-
-        * {
-            color: #000;
+        p {
+            margin-bottom: 1em;
         }
 
         a {
+            color: $bracing_blue;
             text-decoration: none;
-             h1 {
-                text-decoration: none;
-            }
         }
 
-        #parsnip-column,
-        #bracingeffect-column {
-            display: inline-block;
-        }
-
-        #parsnip-column {
-            width: 53%;
-        }
-
-        #bracingeffect-column {
-            width: 46%;
-
-            #bracingeffect-logo-container {
-                text-align: center;
-                white-space: nowrap;
-                margin-bottom: 0.75em;
-
-                #bracingeffect-logo {
-                    background-position: 50% 50%;
-                    background-size: 100%;
-                    width: 4.625em;
-                    display: inline-block;
-                    margin-top: -6em;
-
-                    .spacer {
-                        padding-top: 167.18%
-                    }
-                }
-                #bracingeffect-text {
-                    display: inline-block;
-                    text-align: left;
-
-                    h1, h2 {
-                        font-size: 4em;
-                        line-height: 0.8em;
-                    }
-
-                    #effect-text {
-                        color: $bracing_blue;
-                    }
-                }
-            }
-
-            .contact-method {
-                font-size: 1.25em;
-                margin-top: 0.5em;
-                width: 100%;
-
-                a {
-                    color: $bracing_blue;
-                    text-decoration: underline;
-                }
-            }
-        }
-
-        #parsnip-column {
-
-            #parsnip-logo-container {
-                text-align: center;
-                white-space: nowrap;
-
-                #parsnip-link {
-                    margin-left: -0.5em;
-                }
-
-                #parsnip-logo {
-                    background-position: 50% 50%;
-                    background-size: 100%;
-                    width: 5em;
-                    display: inline-block;
-                    margin-top: -3em;
-
-                    .spacer {
-                        padding-top: 167.18%
-                    }
-                }
-                #parsnip-text {
-                    color: $parsnip_green;
-                    display: inline-block;
-                    font-size: 4em;
-                    margin-left: -0.25em;
-                }
-            }
-
-            .parsnip-description {
-                font-size: 1.25em;
-                margin-top: 0.5em;
-                width: 100%;
-            }
+        a:hover, a:focus {
+            border-bottom: 0.05em solid $dark_bracing_blue;
+            color: $dark_bracing_blue;
         }
     }
 }
@@ -546,7 +524,6 @@ $content_margin_left: 215;
     height: 100%;
     width: 100%;
     position: relative;
-    overflow: hidden;
 }
 
 .slide .slide-image {
@@ -560,11 +537,12 @@ $content_margin_left: 215;
 
 #iphone{background-image:url(#{$images_path}iphone.png)}
 #watch{background-image:url(#{$images_path}watch.png)}
-#chaosclock-logo{background-image:url(#{$images_path}chaosclock-logo.png)}
+.chaosclock-logo{background-image:url(#{$images_path}chaosclock-logo.png)}
 #appstore-badge{background-image:url(#{$images_path}appstore-badge.png)}
-#bracingeffect-logo{background-image:url(#{$images_path}bracingeffect-logo.png)}
+#bracingeffect-logo-light{background-image:url(#{$images_path}bracingeffect-logo-light.png)}
+#bracingeffect-logo-dark{background-image:url(#{$images_path}bracingeffect-logo-dark.png)}
 #parsnip-logo{background-image:url(#{$images_path}parsnip-logo.png)}
-#chaos > .slide-image{background-image:url(#{$images_path}bg.jpg)}
+#iphone-slide > .slide-image{background-image:url(#{$images_path}bg.jpg)}
 #screenshot01{background-image:url(#{$images_path}screenshot01.png)}
 #screenshot02{background-image:url(#{$images_path}screenshot02.png)}
 #screenshot03{background-image:url(#{$images_path}screenshot03.png)}
@@ -581,11 +559,12 @@ only screen and (min-resolution:192dpi),
 only screen and (min-resolution:2dppx) {
     #iphone{background-image:url(#{$images_path}iphone_2x.png)}
     #watch{background-image:url(#{$images_path}watch_2x.png)}
-    #chaosclock-logo{background-image:url(#{$images_path}chaosclock-logo_2x.png)}
+    .chaosclock-logo{background-image:url(#{$images_path}chaosclock-logo_2x.png)}
     #appstore-badge{background-image:url(#{$images_path}appstore-badge_2x.png)}
-    #bracingeffect-logo{background-image:url(#{$images_path}bracingeffect-logo_2x.png)}
+    #bracingeffect-logo-light{background-image:url(#{$images_path}bracingeffect-logo-light_2x.png)}
+    #bracingeffect-logo-dark{background-image:url(#{$images_path}bracingeffect-logo-dark_2x.png)}
     #parsnip-logo{background-image:url(#{$images_path}parsnip-logo_2x.png)}
-    #chaos > .slide-image{background-image:url(#{$images_path}bg_2x.jpg)}
+    #iphone-slide > .slide-image{background-image:url(#{$images_path}bg_2x.jpg)}
     #screenshot01{background-image:url(#{$images_path}screenshot01_2x.png)}
     #screenshot02{background-image:url(#{$images_path}screenshot02_2x.png)}
     #screenshot03{background-image:url(#{$images_path}screenshot03_2x.png)}
@@ -596,13 +575,13 @@ only screen and (min-resolution:2dppx) {
 /****************************************
  * Responsive breakpoints
  ****************************************/
-#title {font-size: 16px;}
+.title { font-size: 16px; }
 $font: 15;
-$width: 1048;
-$breakpoint: $iphone_width * (100 / (100 - $content_percent));
+$width: 874;
+$breakpoint: $iphone_width * 2;
 @while $width >= $breakpoint and $font >= 1 {
     @media all and (max-width: #{$width}px) {
-        #chaos .content #header {
+        #iphone-slide .content .header {
             font-size: #{$font}px;
         }
     }
@@ -613,7 +592,7 @@ $breakpoint: $iphone_width * (100 / (100 - $content_percent));
 $font: $font - 0.75;
 @while $width >= 530 and $font >= 1 {
     @media all and (max-width: #{$width}px) {
-        #chaos .content #header {
+        #iphone-slide .content .header {
             font-size: #{$font}px;
         }
     }
@@ -622,29 +601,23 @@ $font: $font - 0.75;
 }
 
 @media all and (max-width: #{$breakpoint}px) {
-    #chaos .content .float-right {
+    #iphone-slide .content .align-right {
         right: ($content_margin_right / $iphone_width) * 100%;
     }
 
-    #chaos #iphone {
+    #iphone-slide #iphone {
         right: 0;
         left: auto;
     }
 
-    #chaos .content {
+    #iphone-slide .content {
         right: #{$iphone_width}px;
     }
 }
 
-@media all and (max-width: 864px) {
-    #contact .content {
-        font-size: 14px;
-    }
-}
-
 @media all and (min-height: #{$min_height}px) {
-    #chaos #iphone,
-    #chaos .content {
+    #iphone-slide #iphone,
+    #iphone-slide .content {
         top: 2%;
     }
 }

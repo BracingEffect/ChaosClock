@@ -8,4 +8,11 @@ exclude: [
     container.html]
 baseurl: /ChaosClock
 sass:
-    style: :compressed
+
+    # loading path from site root
+    # default to _sass
+    sass_dir: _includes/css
+
+    # style : nested (default), compact, compressed, expanded
+    #         :nested, :compact, :compressed, :expanded also works
+    style: :expanded
