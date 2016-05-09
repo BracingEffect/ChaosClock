@@ -221,12 +221,17 @@ $tooltip_background_color: #fff;
 }
 
 .navbar-fixed-top {
-    background-color: rgba(96, 96, 96, 0);
+    background-color: rgba(0, 0, 0, 1);
     border-bottom: 0;
+
+    .navbar-collapse {
+        border-top: 0 none transparent;
+    }
 
     .navbar-header a.navbar-brand, .navbar-nav > li {
         a {
             color: $text-color;
+            padding-left: 2em;
             text-decoration: none;
         }
 
@@ -251,7 +256,7 @@ $tooltip_background_color: #fff;
     @include transition(all 0.2s ease 0s);
 }
 
-.navbar-fixed-top.opaque {
+.navbar-fixed-top.opaque, .navbar-fixed-top.expanded {
     background-color: rgba(96, 96, 96, 1);
     @include box-shadow(0 0 32px rgba(0, 0, 0, 0.667));
 
@@ -405,14 +410,14 @@ $content_margin_left: 215;
 
     h1 {
         font-size: 3em;
-        margin-left: 45%;
+        margin-left: 50%;
         margin-top: 1em;
     }
 
     .content {
         float: left;
         overflow-x: visible;
-        width: 40%;
+        width: 45%;
 
         #watch {
             float: right;

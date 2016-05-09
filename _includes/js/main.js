@@ -25,14 +25,21 @@ if (isMobile) {
 }
 
 jQuery(document).ready(function($) {
-    $(function () {
-        $('.gregorian-to-discordian-calendar [data-toggle="tooltip"]').tooltip({
-            container : '.gregorian-to-discordian-calendar'
-        });
 
-        $('.discordian-to-std-scale [data-toggle="tooltip"]').tooltip({
-            container : '.discordian-to-std-scale'
-        });
+    $('.gregorian-to-discordian-calendar [data-toggle="tooltip"]').tooltip({
+        container : '.gregorian-to-discordian-calendar'
+    });
+
+    $('.discordian-to-std-scale [data-toggle="tooltip"]').tooltip({
+        container : '.discordian-to-std-scale'
+    });
+
+    $('#top-navbar-content').on('hide.bs.collapse', function () {
+        $('#top-navbar').removeClass('expanded');
+    });
+
+    $('#top-navbar-content').on('show.bs.collapse', function () {
+        $('#top-navbar').addClass('expanded');
     });
 
     var updateNavbarTransparency = function() {
