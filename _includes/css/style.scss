@@ -76,14 +76,6 @@ a {
     clear: both;
 }
 
-.accessibility-text {
-    height: 1px;
-    width: 1px;
-    position: absolute;
-    overflow: hidden;
-    top: -10px;
-}
-
 /****************************************
  * Tooltip
  ****************************************/
@@ -167,9 +159,6 @@ $tooltip_background_color: #fff;
                 font-weight: 300;
                 font-variant: small-caps;
             }
-        }
-
-        .modal-body {
         }
 
         .modal-footer {
@@ -635,7 +624,7 @@ only screen and (min-resolution:2dppx) {
 }
 
 .modal-body {
-    padding: 5px;
+    padding: 15px 5px 15px 5px;
 }
 
 
@@ -688,10 +677,6 @@ only screen and (min-resolution:2dppx) {
         .discordian-to-std-scale {
             font-size: 1em;
         }
-    }
-
-    .modal-body {
-        padding: 5px;
     }
 }
 
