@@ -42,11 +42,38 @@ jQuery(document).ready(function($) {
         $('#top-navbar').addClass('expanded');
     });
 
+    $('#slides').on('movestart', function(e) {
+        // If the movestart is heading off in an upwards or downwards
+        // direction, prevent it so that the browser scrolls normally.
+        if ((e.distX > e.distY && e.distX < -e.distY) || (e.distX < e.distY && e.distX > -e.distY)) {
+            e.preventDefault();
+        }
+    });
+
+    $('#slides').on('mousedown', function(e) {
+        e.preventDefault();
+        $('#slides').addClass('grabbing');
+    });
+
+    $('#slides').on('mouseup', function(e) {
+        $('#slides').removeClass('grabbing');
+    });
+
+    $('#slides').on('swiperight', function() {
+        $('#slides').carousel('prev');
+        $('#slides').removeClass('grabbing');
+    });
+
+    $('#slides').on('swipeleft', function() {
+        $('#slides').carousel('next');
+        $('#slides').removeClass('grabbing');
+    });
+
     var updateNavbarTransparency = function() {
         if($(window).scrollTop() > 0) {
-            $('.navbar-fixed-top').addClass('opaque');
+            $('#top-navbar').addClass('opaque');
         } else {
-            $('.navbar-fixed-top').removeClass('opaque');
+            $('#top-navbar').removeClass('opaque');
         }
     };
     updateNavbarTransparency();
@@ -87,15 +114,6 @@ jQuery(document).ready(function($) {
         } catch(ex) {}
     });
 
-    $slides.owlCarousel({
-        singleItem: true,
-        autoPlay: true,
-        stopOnHover: true,
-        startDragging: function(base) {
-            $body.addClass('grabbing');
-        }
-    });
-    $slides.css('overflow', 'visible');
     $body.on('mouseup touchend', function() {
         $body.removeClass('grabbing');
     });

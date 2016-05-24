@@ -39,20 +39,12 @@
 {{ reset_css | scssify }}
     </style>
     <style type="text/css">
-{% capture owl_carousel_css %}{% include owl-carousel/owl.carousel.css %}{% endcapture %}
-{{ owl_carousel_css | scssify }}
-    </style>
-    <style type="text/css">
-{% capture owl_theme_css %}{% include owl-carousel/owl.theme.css %}{% endcapture %}
-{{ owl_theme_css | scssify }}
+{% capture discordian_css %}{% include css/discordian.scss %}{% endcapture %}
+{{ discordian_css | scssify }}
     </style>
     <style type="text/css">
 {% capture style_css %}{% include css/style.scss %}{% endcapture %}
 {{ style_css | scssify }}
-    </style>
-    <style type="text/css">
-{% capture discordian_css %}{% include css/discordian.scss %}{% endcapture %}
-{{ discordian_css | scssify }}
     </style>
 
 </head>
@@ -73,7 +65,7 @@
         </div>
         <div class="collapse navbar-collapse" id="top-navbar-content">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/">Jurbly</a></li>
+                <li><a href="/Jurbly/">Jurbly</a></li>
                 <li><a href="/Parsnip/">Parsnip</a></li>
                 <li><a href="#" data-toggle="modal" data-target="#contact-modal">Contact Us</a></li>
             </ul>
@@ -109,44 +101,54 @@
           </a>
           </p>
           </div>
-      </div><!-- /.modal-body -->
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+      </div><!-- modal-body -->
+    </div><!-- modal-content -->
+  </div><!-- modal-dialog -->
+</div><!-- modal -->
 
 <div class="container">
-    <div id="iphone-slide" class="slide ratio-4x3">
-        <span class="spacer"></span>
+    <div id="iphone-section">
         <div class="content">
-            <div class="header" class="align-right">
-                <h1 class="title">Chaos Clock</h1>
+            <div class="header">
+                <h1 class="title nowrap">Chaos Clock</h1>
             </div>
-            <div class="text" class="align-right">
+            <div class="text nowrap">
                 Date & time</a> measurement for
                 <a id="discordianism-wikipedia-link" href="http://en.wikipedia.org/wiki/Discordianism">Discordians</a>
             </div>
-            <div id="badge-container" class="align-right">
-                <a id="chaosclock-itunes-link" href="https://itunes.apple.com/us/app/chaos-clock/id977164677?ls=1&mt=8">
-                    <span class="accessibility-text">Download on the App Store</span>
-                    <div id="appstore-badge" class="background-image"><span class="spacer"></span></div></a>
-            </div>
         </div>
         <div id="iphone" class="background-image">
-            <div id="slides">
-                <div id="screenshot01" class="screenshot background-image"></div>
-                <div id="screenshot02" class="screenshot background-image"></div>
-                <div id="screenshot03" class="screenshot background-image"></div>
-                <div id="screenshot04" class="screenshot background-image"></div>
-                <div id="screenshot05" class="screenshot background-image"></div>
+            <span class="spacer"></span>
+            <div id="slides" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner" role="listbox">
+                    <div id="screenshot01" class="screenshot background-image item active"><span class="spacer"></span></div>
+                    <div id="screenshot02" class="screenshot background-image item"><span class="spacer"></span></div>
+                    <div id="screenshot03" class="screenshot background-image item"><span class="spacer"></span></div>
+                    <div id="screenshot04" class="screenshot background-image item"><span class="spacer"></span></div>
+                    <div id="screenshot05" class="screenshot background-image item"><span class="spacer"></span></div>
+                </div>
+                <ol class="carousel-indicators">
+                    <li data-target="#slides" data-slide-to="0" class="active"></li>
+                    <li data-target="#slides" data-slide-to="1"></li>
+                    <li data-target="#slides" data-slide-to="2"></li>
+                    <li data-target="#slides" data-slide-to="3"></li>
+                    <li data-target="#slides" data-slide-to="4"></li>
+                </ol>
             </div>
         </div>
+        <div id="badge-container">
+            <a id="chaosclock-itunes-link" href="https://itunes.apple.com/us/app/chaos-clock/id977164677?ls=1&mt=8">
+                <span class="accessibility-text">Download on the App Store</span>
+                <div id="appstore-badge" class="background-image"><span class="spacer"></span></div></a>
+        </div>
+        <div class="clear"></div>
     </div>
-    <div id="watch-slide">
+    <div id="watch-section">
         <div class="hr"></div>
+        <h1 class="title">Now on <span class="nowrap">Apple Watch</span></h1>
         <div class="content">
             <div id="watch" class="background-image"></div>
         </div>
-        <h1 class="title">Now on <span class="nowrap">Apple Watch</span></h1>
         <div class="clear"></div>
     </div>
     <div id="reference">
@@ -159,6 +161,12 @@
             {% include discordian_clock.html %}
         </div>
     </div>
+    <div id="footer" class="text-center">
+        <div class="subtle">
+            <span class="nowrap">Copyright © 2016 Bracing Effect, LLC.</span>
+            <span class="nowrap">All rights reserved.</span>
+        </div>
+    </div>
 </div>
 
 
@@ -166,13 +174,16 @@
 {% include js/jquery.min.js %}
 </script>
 <script type="text/javascript">
+{% include js/jquery.event.move.js %}
+</script>
+<script type="text/javascript">
+{% include js/jquery.event.swipe.js %}
+</script>
+<script type="text/javascript">
 {% include js/jquery.easing.js %}
 </script>
 <script type="text/javascript">
 {% include js/bootstrap.min.js %}
-</script>
-<script type="text/javascript">
-{% include owl-carousel/owl.carousel.min.js %}
 </script>
 <script type="text/javascript">
 {% include js/main.js %}
