@@ -6,25 +6,15 @@ if (isIOS) {
     {% include js/iosfix.js %}
 }
 
-if (isMobile) {
-    var getWindowHeight = function() {
-        // Get zoom level of mobile Safari
-        // Note, that such zoom detection might not work correctly in other
-        // browsers. We use width, instead of height, because there are no
-        // vertical toolbars :)
-        var zoomLevel = (document.documentElement.clientWidth /
-                         window.innerWidth);
-        // window.innerHeight returns height of the visible area.
-        // We multiply it by zoom and get out real height.
-        return window.innerHeight * zoomLevel;
-    };
-} else {
-    var getWindowHeight = function() {
-        return $(window).height()
-    };
-}
-
 jQuery(document).ready(function($) {
+
+    var $document = $(document),
+        $window = $(window),
+        $body = $('body'),
+        $navbar = $('#top-navbar'),
+        $navbarContent = $('#top-navbar-content'),
+        $slides = $('#slides'),
+        $days = $('td.day');
 
     $('.gregorian-to-discordian-calendar [data-toggle="tooltip"]').tooltip({
         container : '.gregorian-to-discordian-calendar'
@@ -34,15 +24,15 @@ jQuery(document).ready(function($) {
         container : '.discordian-to-std-scale'
     });
 
-    $('#top-navbar-content').on('hide.bs.collapse', function () {
-        $('#top-navbar').removeClass('expanded');
+    $navbarContent.on('hide.bs.collapse', function () {
+        $navbar.removeClass('expanded');
     });
 
-    $('#top-navbar-content').on('show.bs.collapse', function () {
-        $('#top-navbar').addClass('expanded');
+    $navbarContent.on('show.bs.collapse', function () {
+        $navbar.addClass('expanded');
     });
 
-    $('#slides').on('movestart', function(e) {
+    $slides.on('movestart', function(e) {
         // If the movestart is heading off in an upwards or downwards
         // direction, prevent it so that the browser scrolls normally.
         if ((e.distX > e.distY && e.distX < -e.distY) || (e.distX < e.distY && e.distX > -e.distY)) {
@@ -50,56 +40,34 @@ jQuery(document).ready(function($) {
         }
     });
 
-    $('#slides').on('mousedown', function(e) {
+    $slides.on('mousedown', function(e) {
         e.preventDefault();
-        $('#slides').addClass('grabbing');
+        $body.addClass('grabbing');
     });
 
-    $('#slides').on('mouseup', function(e) {
-        $('#slides').removeClass('grabbing');
+    $body.on('mouseup touchend', function() {
+        $body.removeClass('grabbing');
     });
 
-    $('#slides').on('swiperight', function() {
-        $('#slides').carousel('prev');
-        $('#slides').removeClass('grabbing');
+    $slides.on('swiperight', function() {
+        $slides.carousel('prev');
+        $body.removeClass('grabbing');
     });
 
-    $('#slides').on('swipeleft', function() {
-        $('#slides').carousel('next');
-        $('#slides').removeClass('grabbing');
+    $slides.on('swipeleft', function() {
+        $slides.carousel('next');
+        $body.removeClass('grabbing');
     });
 
     var updateNavbarTransparency = function() {
-        if($(window).scrollTop() > 0) {
-            $('#top-navbar').addClass('opaque');
+        if ($window.scrollTop() > 0) {
+            $navbar.addClass('opaque');
         } else {
-            $('#top-navbar').removeClass('opaque');
+            $navbar.removeClass('opaque');
         }
     };
     updateNavbarTransparency();
-    $(window).scroll(updateNavbarTransparency);
-
-    var $document = $(document),
-        $body = $('body'),
-        $htmlbody = $('html,body'),
-        $contactLink = $('#internal-contact-link'),
-        $internalLink = $('#internal-calendar-link, #internal-clock-link'),
-        $slides = $('#slides'),
-        $days = $('td.day');
-
-    $contactLink.click(function(event) {
-        event.preventDefault();
-        $htmlbody.animate({
-            scrollTop: $document.height() - getWindowHeight()
-        }, 500, 'easeInOutQuint');
-    });
-
-    $internalLink.click(function(event) {
-        event.preventDefault();
-        $htmlbody.animate({
-            scrollTop: $($(this).attr('href')).offset().top
-        }, 500, 'easeInOutQuint');
-    });
+    $window.scroll(updateNavbarTransparency);
 
     $days.hover(function(event) {
         try {
@@ -112,9 +80,5 @@ jQuery(document).ready(function($) {
             var dayNumber = $(this).data("day");
             $("td.day.active").removeClass("active").tooltip("hide");
         } catch(ex) {}
-    });
-
-    $body.on('mouseup touchend', function() {
-        $body.removeClass('grabbing');
     });
 });
