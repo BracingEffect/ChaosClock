@@ -3,10 +3,7 @@
 @import "bootstrap";
 @import "mixins";
 
-$software_background: #000;
 $images_path: "images/";
-
-$contact_background_color: #f0f0f0;
 
 /****************************************
  * Global styles
@@ -74,6 +71,10 @@ a {
 
 .clear {
     clear: both;
+}
+
+#top-navbar {
+    @include text-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
 }
 
 /****************************************
@@ -193,7 +194,7 @@ $tooltip_background_color: #fff;
 }
 
 #bracingeffect-logo-light, #bracingeffect-logo-dark {
-    width: 174px;
+    width: 170px;
     height: 32px;
 }
 
@@ -214,8 +215,10 @@ $tooltip_background_color: #fff;
         border-top: 0 none transparent;
     }
 
-    .navbar-toggle .icon-bar {
-        background-color: #fff;
+    .navbar-toggle {
+        .icon-bar {
+            background-color: #fff;
+        }
     }
 
     .navbar-header a.navbar-brand, .navbar-nav > li {
@@ -227,7 +230,7 @@ $tooltip_background_color: #fff;
 
         a:hover, a:focus {
             color: $text-color;
-            opacity: 0.3;
+            opacity: 0.5;
         }
     }
 
@@ -236,7 +239,7 @@ $tooltip_background_color: #fff;
     }
 
     #bracingeffect-logo-light:hover {
-        opacity: 0.3;
+        opacity: 0.5;
     }
 
     #bracingeffect-logo-dark {
