@@ -106,7 +106,7 @@
 </div>
 
 <div class="container">
-    <div id="iphone-section">
+    <div id="iphone-section" class="section">
         <div class="content">
             <div class="header">
                 <h1 class="title nowrap">Chaos Clock</h1>
@@ -139,30 +139,41 @@
             <a
                 id="chaosclock-itunes-link"
                 href="https://itunes.apple.com/us/app/chaos-clock/id977164677?ls=1&mt=8"
-                aria-label="Download on the App Store">
+                aria-label="Download Chaos Clock on the App Store">
                 <div id="appstore-badge" class="background-image"></div>
             </a>
         </div>
         <div class="clear"></div>
     </div>
-    <div id="watch-section">
-        <div class="hr"></div>
+
+    <div class="icon-row">
+        <div class="chaosclock-logo background-image"><span class="spacer"></span></div>
+    </div>
+
+    <div id="watch-section" class="section">
         <h1 class="title">Now on <span class="nowrap">Apple Watch</span></h1>
         <div class="content">
             <div id="watch" class="background-image"></div>
         </div>
         <div class="clear"></div>
     </div>
-    <div id="reference">
-        <div class="hr"></div>
-        <div id="discordian-calendar">
-            {% include discordian_calendar.html %}
-        </div>
-        <div class="hr"></div>
-        <div id="discordian-clock">
-            {% include discordian_clock.html %}
-        </div>
+
+    <div class="icon-row">
+        <div class="chaosclock-logo background-image"><span class="spacer"></span></div>
     </div>
+
+    <div id="discordian-calendar" class="section">
+        {% include discordian_calendar.html %}
+    </div>
+
+    <div class="icon-row">
+        <div class="chaosclock-logo background-image"><span class="spacer"></span></div>
+    </div>
+
+    <div id="discordian-clock" class="section">
+        {% include discordian_clock.html %}
+    </div>
+
     <div id="footer" class="text-center">
         <div id="website-copyright" class="subtle">
             <span class="nowrap">© 2016 Bracing Effect, LLC</span>

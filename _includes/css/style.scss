@@ -73,9 +73,36 @@ a {
     clear: both;
 }
 
-#top-navbar {
-    @include text-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+.icon-row {
+    position: relative;
+
+    height: 0;
+    max-width: 300px;
+    width: 100%;
+
+    margin: 0 auto;
+
+    border-bottom: 1px solid #303030;
+
+    .chaosclock-logo {
+        height: 150px;
+        width: 150px;
+
+        position: absolute;
+        top: -75px;
+        left: 50%;
+
+        margin-left: -75px;
+
+        z-index: 1000;
+    }
 }
+
+.section {
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+
 
 /****************************************
  * Tooltip
@@ -183,6 +210,10 @@ $tooltip_background_color: #fff;
  * Header
  ****************************************/
 
+#top-navbar {
+    @include text-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+}
+
 .navbar-brand {
     position: relative;
     padding: 9px 15px;
@@ -196,13 +227,6 @@ $tooltip_background_color: #fff;
 #bracingeffect-logo-light, #bracingeffect-logo-dark {
     width: 170px;
     height: 32px;
-}
-
-#bracingeffect-logo-dark {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    margin-top: -16px;
 }
 
 .navbar-fixed-top {
@@ -242,10 +266,6 @@ $tooltip_background_color: #fff;
         opacity: 0.5;
     }
 
-    #bracingeffect-logo-dark {
-        opacity: 0;
-    }
-
     @include transition(all 0.3s ease 0s);
 }
 
@@ -259,7 +279,7 @@ $tooltip_background_color: #fff;
  ****************************************/
 
 #footer {
-    padding-bottom: 2em;
+    padding-bottom: 54px;
 
     #website-copyright {
         font-size: 12px;
@@ -282,7 +302,7 @@ $content_percent: 50;
 #iphone-section {
     border-top-right-radius: 1px; /* required for iOS zoom bug */
     border-top-left-radius: 1px; /* required for iOS zoom bug */
-    padding-top: 90px;
+    padding-top: 100px;
 
     .content {
         position: relative;
@@ -349,33 +369,22 @@ body.grabbing {
  * Discordian Calendar and Clock
  ****************************************/
 
-#reference {
-    background-color: #000;
-    overflow-x: hidden;
-    padding-top: 6em;
+#discordian-calendar,
+#discordian-clock {
+    max-width: 768px;
+    margin: 0 auto 0 auto;
 
-    .chaosclock-logo {
-        display: inline-block;
-        width: 56px;
-        height: 56px;
-        margin-right: 0.1em;
-        vertical-align: -0.15em;
-    }
+    .discordian-calendar,
+    .discordian-clock {
 
-    #discordian-calendar,
-    #discordian-clock {
-        max-width: 768px;
-        margin: 0 auto 0 auto;
-        padding-bottom: 1em;
-
-        .discordian-calendar,
-        .discordian-clock {
-
-            > .text-center {
-                padding: 2.25em 0 0.5em 0;
-            }
+        > .text-center {
+            padding: 2.25em 0 0.5em 0;
         }
     }
+}
+
+#discordian-clock {
+    padding-bottom: 100px;
 }
 
 
@@ -440,15 +449,7 @@ body.grabbing {
     }
 }
 
-.section {
-    background-color: #000000;
-    color: $normal_text;
-    height: 100%;
-    width: 100%;
-    position: relative;
-}
-
-.section .section-image {
+.section-image {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -462,8 +463,6 @@ body.grabbing {
 .chaosclock-logo{background-image:url(#{$images_path}chaosclock-logo.png)}
 #appstore-badge{background-image:url(#{$images_path}appstore-badge.png)}
 #bracingeffect-logo-light{background-image:url(#{$images_path}bracingeffect-logo-light.png)}
-#bracingeffect-logo-dark{background-image:url(#{$images_path}bracingeffect-logo-dark.png)}
-#parsnip-logo{background-image:url(#{$images_path}parsnip-logo.png)}
 #iphone-section > .section-image{background-image:url(#{$images_path}bg.jpg)}
 #screenshot01{background-image:url(#{$images_path}screenshot01.png)}
 #screenshot02{background-image:url(#{$images_path}screenshot02.png)}
@@ -484,8 +483,6 @@ only screen and (min-resolution:2dppx) {
     .chaosclock-logo{background-image:url(#{$images_path}chaosclock-logo_2x.png)}
     #appstore-badge{background-image:url(#{$images_path}appstore-badge_2x.png)}
     #bracingeffect-logo-light{background-image:url(#{$images_path}bracingeffect-logo-light_2x.png)}
-    #bracingeffect-logo-dark{background-image:url(#{$images_path}bracingeffect-logo-dark_2x.png)}
-    #parsnip-logo{background-image:url(#{$images_path}parsnip-logo_2x.png)}
     #iphone-section > .section-image{background-image:url(#{$images_path}bg_2x.jpg)}
     #screenshot01{background-image:url(#{$images_path}screenshot01_2x.png)}
     #screenshot02{background-image:url(#{$images_path}screenshot02_2x.png)}
@@ -499,8 +496,7 @@ only screen and (min-resolution:2dppx) {
  ****************************************/
 
 .container {
-    // padding-left: 5px;
-    // padding-right: 5px;
+
 }
 
 #contact-modal {
@@ -581,7 +577,6 @@ only screen and (min-resolution:2dppx) {
 #watch-section {
     background-color: #000;
     overflow-x: visible;
-    padding-top: 96px;
 
     h1 {
         font-size: 3em;
