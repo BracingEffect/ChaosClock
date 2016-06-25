@@ -1,14 +1,51 @@
 
 html, body {
     background-color: #000;
-    font-size: 18px;
+    font-size: 16px;
 }
 
-h2 i {
-    font-size: 0.85em;
-    padding-left: 0.5em;
+.container {
+    max-width: 768px;
 }
 
-.chaosclock-logo {
-    display: none;
+.discordian-calendar, .discordian-clock {
+    padding-bottom: 2em;
+
+    h1 {
+        font-size: 2.1em;
+        margin: 1em 0 0.5em 0;
+
+        span {
+            font-size: 0.85em;
+        }
+    }
+
+    h2 {
+        font-size: 1.8em;
+
+        i {
+            display: block;
+            font-size: 0.75em;
+            font-style: italic;
+            padding-left: 0.75em;
+        }
+    }
+
+    h3 {
+        font-size: 1.5em;
+    }
+
+    .chaosclock-logo {
+        display: none;
+    }
+
+    .glyphicon {
+        display: inline-block;
+        vertical-align: 0;
+    }
+
+    .glyphicon-calendar:before,
+    .glyphicon-time:before {
+        content: '';
+    }
 }

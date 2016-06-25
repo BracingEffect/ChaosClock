@@ -10,4 +10,11 @@ exclude: [
     README.md]
 destination: _standalone_site
 sass:
+
+    # loading path from site root
+    # default to _sass
+    sass_dir: _includes/css
+
+    # style : nested (default), compact, compressed, expanded
+    #         :nested, :compact, :compressed, :expanded also works
     style: :compressed

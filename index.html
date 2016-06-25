@@ -46,6 +46,10 @@
 {% capture style_css %}{% include css/style.scss %}{% endcapture %}
 {{ style_css | scssify }}
     </style>
+    <style type="text/css">
+{% capture reset_css %}{% include css/bootstrap_glyphicons.scss %}{% endcapture %}
+{{ reset_css | scssify }}
+    </style>
 
 </head>
 <body>

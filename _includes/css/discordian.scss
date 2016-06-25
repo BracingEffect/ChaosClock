@@ -13,15 +13,10 @@ $link_text: #c0c0c0;
 .discordian-calendar,
 .discordian-clock {
 
-    font-size: 1.15em;
-
     h1 {
-        text-align: center;
         font-size: 3em;
-    }
-
-    h1.title {
-        padding-bottom: 0.5em;
+        margin: 0 0 0.5em 0;
+        text-align: center;
     }
 
     h2 {
@@ -32,12 +27,16 @@ $link_text: #c0c0c0;
         font-size: 1.5em;
     }
 
-    > h2 {
-        padding: 1em 0 0.5em 0;
+    h2, h3 {
+        margin: 1em 0 0.5em 0;
     }
 
     p {
-        padding: 0.1em 0 0.1em 0;
+        margin: 0 0 0.75em 0;
+    }
+
+    > .text-center {
+        margin: 2.25em 0 2.25em 0
     }
 
     .subtle {
@@ -47,7 +46,7 @@ $link_text: #c0c0c0;
     ul,
     ol.references {
         list-style: disc;
-        padding-left: 1.5em;
+        margin-left: 1.5em;
     }
 
     .thud-time-list,
@@ -55,10 +54,10 @@ $link_text: #c0c0c0;
     .season-list,
     .day-of-week-list,
     .holyday-list {
-        padding: 0.5em 0 0 2em;
+        margin: 0.5em 0 0 2em;
 
         li {
-            padding: 0 0 0.5em 0;
+            margin: 0 0 0.5em 0;
         }
     }
 
@@ -66,26 +65,16 @@ $link_text: #c0c0c0;
     .holydays-season {
         width: 49%;
         display: inline-block;
+
+        margin-bottom: 1em;
     }
 
-    .thud-time,
-    .non-thud-time,
-    .universal-vs-local,
-    .discordian-to-std,
     .holydays-apostle,
     .holydays-season,
     .holydays-sttibsday {
         h3 {
-            padding: 0 0 0.5em 0;
+            margin: 0 0 0.5em 0;
         }
-    }
-
-    .thud-time,
-    .non-thud-time,
-    .universal-vs-local,
-    .discordian-to-std,
-    .holydays-sttibsday {
-        padding: 1em 0 0 0;
     }
 }
 
@@ -125,6 +114,10 @@ $link_text: #c0c0c0;
 
         .discordian-std-divider {
             width: 5em;
+        }
+
+        .discordian-std-divider:hover {
+            background-color: #fff;
         }
 
         .discordian-time-title,
@@ -177,6 +170,10 @@ $link_text: #c0c0c0;
 
         tr.minute-final td.discordian-std-divider {
             background-color: #585858;
+        }
+
+        tr.minute-final td.discordian-std-divider:hover {
+            border-top: 2px solid white;
         }
     }
 }

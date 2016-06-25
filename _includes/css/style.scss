@@ -373,14 +373,6 @@ body.grabbing {
 #discordian-clock {
     max-width: 768px;
     margin: 0 auto 0 auto;
-
-    .discordian-calendar,
-    .discordian-clock {
-
-        > .text-center {
-            padding: 2.25em 0 0.5em 0;
-        }
-    }
 }
 
 #discordian-clock {
@@ -496,7 +488,8 @@ only screen and (min-resolution:2dppx) {
  ****************************************/
 
 .container {
-
+    padding-left: (floor(($grid-gutter-width / 2)) / $screen-sm-min) * 100%;
+    padding-right: (ceil(($grid-gutter-width / 2)) / $screen-sm-min) * 100%;
 }
 
 #contact-modal {
@@ -610,10 +603,6 @@ only screen and (min-resolution:2dppx) {
         width: 99%;
     }
 
-    .holydays-season {
-        padding: 1em 0 0 0;
-    }
-
     .gregorian-to-discordian-calendar {
         font-size: 0.5em;
     }
@@ -691,17 +680,13 @@ only screen and (min-resolution:2dppx) {
     }
 
     .container {
-        padding-left:  floor(($grid-gutter-width / 2));
+        padding-left: floor(($grid-gutter-width / 2));
         padding-right: ceil(($grid-gutter-width / 2));
     }
 
     .discordian-calendar {
         .holydays-apostle, .holydays-season {
             width: 49%;
-        }
-
-        .holydays-season {
-            padding: 0 0 0 0;
         }
 
         .gregorian-to-discordian-calendar {

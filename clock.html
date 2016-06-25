@@ -6,34 +6,19 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <meta id="viewport" name="viewport">
-    <script>
-        (function(doc) {
-            if (window.matchMedia) {
-                var viewport = document.getElementById('viewport');
-                if(window.matchMedia('(max-device-width: 736px)').matches) {
-                    viewport.setAttribute('content', 'width=736');
-                } else {
-                    viewport.setAttribute('content', 'width=device-width, initial-scale=1');
-                }
-            }
-        }(document));
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style type="text/css">
 {% capture reset_css %}{% include css/reset.scss %}{% endcapture %}
 {{ reset_css | scssify }}
     </style>
     <style type="text/css">
-{% include css/bootstrap.min.css %}
+{% capture discordian_css %}{% include css/discordian.scss %}{% endcapture %}
+{{ discordian_css | scssify }}
     </style>
     <style type="text/css">
 {% capture style_css %}{% include css/style.scss %}{% endcapture %}
 {{ style_css | scssify }}
-    </style>
-    <style type="text/css">
-{% capture discordian_css %}{% include css/discordian.scss %}{% endcapture %}
-{{ discordian_css | scssify }}
     </style>
     <style>
 {% capture standalone_css %}{% include css/standalone.scss %}{% endcapture %}
@@ -43,7 +28,11 @@
 </head>
 <body>
 
+<div class="container">
+
 {% include discordian_clock.html %}
+
+</div>
 
 <script type="text/javascript">
 {% include js/iosfix.js %}
@@ -56,23 +45,8 @@
 </script>
 <script type="text/javascript">
 jQuery(document).ready(function($) {
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip({
-            container : 'body'
-        })
-    })
-
-    $('td.day').hover(function(event) {
-        try {
-            var dayNumber = $(this).data("day");
-            $("td.day-" + dayNumber).addClass("active").tooltip("show");
-        } catch(ex) {}
-    },
-    function(event) {
-        try {
-            var dayNumber = $(this).data("day");
-            $("td.day.active").removeClass("active").tooltip("hide");
-        } catch(ex) {}
+    $('.discordian-to-std-scale [data-toggle="tooltip"]').tooltip({
+        container : '.discordian-to-std-scale'
     });
 });
 </script>
