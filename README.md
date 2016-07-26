@@ -1,4 +1,4 @@
 Chaos Clock Website
 ===================
 
-Source code for Chaos Clock website.
+Source code for the Chaos Clock iOS app website.
