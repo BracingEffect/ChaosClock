@@ -43,9 +43,13 @@ $link_text: #c0c0c0;
         color: $subtle_text;
     }
 
-    ul,
-    ol.references {
+    ul {
         list-style: disc;
+        margin-left: 1.5em;
+    }
+
+    ol.references {
+        list-style: decimal;
         margin-left: 1.5em;
     }
 

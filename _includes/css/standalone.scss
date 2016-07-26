@@ -8,6 +8,17 @@ html, body {
     max-width: 768px;
 }
 
+table.day-of-discord {
+
+    tr {
+        border: 1px solid #303030;
+
+        td {
+            padding: 0.5em;
+        }
+    }
+}
+
 .discordian-calendar, .discordian-clock {
     padding-bottom: 2em;
 
