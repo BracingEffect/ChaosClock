@@ -1,2 +1,4 @@
-# ChaosClock
-Public resources for the Chaos Clock iOS App
+Chaos Clock Website
+===================
+
+Source code for the Chaos Clock iOS app website.
