@@ -63,7 +63,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="http://bracingeffect.com" aria-label="Bracing Effect Homepage">
-                <div id="bracingeffect-logo-light" class="background-image"></div>
+                <div class="be-title background-image"></div>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="top-navbar-content">
@@ -110,57 +110,55 @@
 </div>
 
 <div class="container">
-    <div id="iphone-section" class="section">
-        <div class="content">
-            <div class="header">
-                <h1 class="title nowrap">Chaos Clock</h1>
-            </div>
-            <div class="text nowrap">
-                Date & time</a> measurement for
-                <a id="discordianism-wikipedia-link" href="http://en.wikipedia.org/wiki/Discordianism">Discordians</a>
+    <div class="chaosclock section">
+
+        <div class="content-left">
+            <h1 class="nowrap">Chaos Clock</h1>
+            <div class="description">
+                Date & time measurement for <a href="http://en.wikipedia.org/wiki/Discordianism">Discordians</a>
                 <br>
                 <br>
                 <em class="subtle">Hail Eris!</em>
             </div>
         </div>
-        <div id="iphone" class="background-image">
-            <span class="spacer"></span>
-            <div id="slides" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner" role="listbox">
-                    <div id="screenshot01" class="screenshot background-image item active"><span class="spacer"></span></div>
-                    <div id="screenshot02" class="screenshot background-image item"><span class="spacer"></span></div>
-                    <div id="screenshot03" class="screenshot background-image item"><span class="spacer"></span></div>
-                    <div id="screenshot04" class="screenshot background-image item"><span class="spacer"></span></div>
-                    <div id="screenshot05" class="screenshot background-image item"><span class="spacer"></span></div>
+
+        <div class="content-right">
+            <div class="iphone background-image">
+                <span class="spacer"></span>
+                <div class="iphone-screen background-image">
+                    <video autoplay muted controls loop
+                        class="demovideo"
+                        onclick="if(typeof InstallTrigger == 'undefined') { (this.paused ? this.play() : this.pause()); }">
+                        <source src="images/demo01.webm" type="video/webm"></source>
+                        <source src="images/demo01.mp4" type="video/mp4"></source>
+                    </video>
                 </div>
-                <ol class="carousel-indicators">
-                    <li data-target="#slides" data-slide-to="0" class="active"></li>
-                    <li data-target="#slides" data-slide-to="1"></li>
-                    <li data-target="#slides" data-slide-to="2"></li>
-                    <li data-target="#slides" data-slide-to="3"></li>
-                    <li data-target="#slides" data-slide-to="4"></li>
-                </ol>
             </div>
         </div>
-        <div id="badge-container">
+        <div class="clear"></div>
+
+        <div class="badge-container">
             <a
-                id="chaosclock-itunes-link"
+                class="itunes-link"
                 href="https://itunes.apple.com/us/app/chaos-clock/id977164677?ls=1&mt=8"
                 aria-label="Download Chaos Clock on the App Store">
-                <div id="appstore-badge" class="background-image"></div>
+                <div class="appstore-badge background-image"></div>
             </a>
         </div>
         <div class="clear"></div>
+
     </div>
 
     <div class="icon-row">
         <div class="chaosclock-logo background-image"><span class="spacer"></span></div>
     </div>
 
-    <div id="watch-section" class="section">
-        <h1 class="title">Now on <span class="nowrap">Apple Watch</span></h1>
-        <div class="content">
-            <div id="watch" class="background-image"></div>
+    <div class="watch-section section">
+        <div class="content-right">
+            <h1>Now on <span class="nowrap">Apple Watch</span></h1>
+        </div>
+        <div class="content-left">
+            <div class="watch background-image"></div>
         </div>
         <div class="clear"></div>
     </div>
@@ -191,15 +189,6 @@
 
 <script type="text/javascript">
 {% include js/jquery.min.js %}
-</script>
-<script type="text/javascript">
-{% include js/jquery.event.move.js %}
-</script>
-<script type="text/javascript">
-{% include js/jquery.event.swipe.js %}
-</script>
-<script type="text/javascript">
-{% include js/jquery.easing.js %}
 </script>
 <script type="text/javascript">
 {% include js/bootstrap.min.js %}
