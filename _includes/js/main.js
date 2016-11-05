@@ -1,11 +1,3 @@
-var agent = navigator.userAgent || navigator.vendor || window.opera || '';
-var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(agent);
-var isIOS = /iPhone|iPad|iPod/i.test(agent);
-
-if (isIOS) {
-    {% include js/iosfix.js %}
-}
-
 jQuery(document).ready(function($) {
 
     var $document = $(document),
@@ -21,6 +13,8 @@ jQuery(document).ready(function($) {
     $('.discordian-to-std-scale [data-toggle="tooltip"]').tooltip({
         container : '.discordian-to-std-scale'
     });
+
+    $navbarContent.localScroll({filter:'.smoothScroll', duration: 300, hash: true});
 
     $navbarContent.on('hide.bs.collapse', function () {
         $navbar.removeClass('expanded');

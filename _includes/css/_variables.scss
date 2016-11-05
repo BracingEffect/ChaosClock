@@ -6,72 +6,125 @@ $dark_parsnip_green: #309000; // rgb(48,144,0)
 $chaos_violet: #a00aa0; // rgb(160,10,160)
 $github_purple: #400440; // rgb(64,4,64)
 
-$normal_text: #f0f0f0;
-$subtle_text: #a0a0a0;
-$link_text: #a0a0a0;
+
+$images_path: "images/";
 
 
-//== Media queries breakpoints
+//-------------------------------------------------------------
+// Bootstrap color scheme
+//-------------------------------------------------------------
 
-$screen-sm-min:      640px !default;
-$screen-md-min:      736px !default;
-$screen-lg-min:      900px !default;
+$brand-primary: #606060 !default;
+$brand-success: #5cb85c !default;
+$brand-info:    #5bc0de !default;
+$brand-warning: #f0ad4e !default;
+$brand-danger:  #d9534f !default;
 
-$modal-lg:           706px !default;
-$modal-xl:           870px !default;
+$text-color:    #f8f8f8 !default;
+$subtle-color:   darken($text-color, 33%) !default;
 
-$grid-gutter-width:  30px !default;
+$body-bg:       #000 !default;
 
-//** For `$screen-sm-min` and up.
-$container-tablet:             (610px + $grid-gutter-width) !default;
-
-//** For `$screen-md-min` and up.
-$container-desktop:            (706px + $grid-gutter-width) !default;
-
-//** For `$screen-lg-min` and up.
-$container-large-desktop:      (870px + $grid-gutter-width) !default;
-
-@media (min-width: $screen-lg-min) {
-  body .modal-lg { width: $modal-xl; }
-}
-
-
-//== Bootstrap color scheme
-
-$brand-primary:         #707070 !default; // darken(#428bca, 6.5%) !default; // #337ab7
-$brand-success:         #5cb85c !default;
-$brand-info:            #5bc0de !default;
-$brand-warning:         #f0ad4e !default;
-$brand-danger:          #d9534f !default;
-
-$modal-content-bg:      #c0c0c0 !default;
-
-//== Scaffolding
-//
-//## Settings for some of the most global styles.
-
-//** Background color for `<body>`.
-$body-bg:               #000 !default;
-
-//** Global text color on `<body>`.
-$text-color:            #fff !default;
-
-//** Global textual link color.
-$link-color:            $brand-primary !default;
-//** Link hover color set via `darken()` function.
+$link-color:            #999 !default;
 $link-hover-color:      darken($link-color, 15%) !default;
-//** Link hover decoration.
 $link-hover-decoration: underline !default;
 
 
-//== Typography
-//
-//## Font, line-height, and color for body text, headings, and more.
+//-------------------------------------------------------------
+// Media queries breakpoints
+//-------------------------------------------------------------
+
+$screen-xs:     480px !default;
+$screen-xs-min: $screen-xs !default;
+
+$screen-sm:     768px !default;
+$screen-sm-min: $screen-sm !default;
+
+$screen-md:     992px !default;
+$screen-md-min: $screen-md !default;
+
+$screen-lg:     1200px !default;
+$screen-lg-min: $screen-lg !default;
+
+
+//-------------------------------------------------------------
+// Grid system
+//-------------------------------------------------------------
+
+$grid-gutter-width: 30px !default;
+
+
+//-------------------------------------------------------------
+// Container sizes
+//-------------------------------------------------------------
+
+// For `$screen-sm-min` and up.
+$container-tablet:        ($screen-sm - $grid-gutter-width - 18px) !default;
+
+//  For `$screen-md-min` and up.
+$container-desktop:       ($screen-md - $grid-gutter-width - 22px) !default;
+
+//  For `$screen-lg-min` and up.
+$container-large-desktop: ($screen-lg - $grid-gutter-width - 30px) !default;
+
+
+//-------------------------------------------------------------
+// Modals
+//-------------------------------------------------------------
+
+$modal-content-bg:          #d0d0d0 !default;
+$modal-header-border-color: transparent !default;
+$modal-footer-border-color: $modal-header-border-color !default;
+
+
+//-------------------------------------------------------------
+// Navbar
+//-------------------------------------------------------------
+
+$navbar-default-color:     #fff !default;
+$navbar-default-bg:        rgba(128, 128, 128, 0) !default;
+$navbar-default-border:    rgba(128, 128, 128, 0) !default;
+
+$navbar-default-opaque-bg: #808080 !default;
+
+$navbar-default-link-color:        #fff !default;
+$navbar-default-link-hover-color:  darken($navbar-default-link-color, 20%) !default;
+$navbar-default-link-hover-bg:     transparent !default;
+$navbar-default-link-active-color: #fff !default;
+$navbar-default-link-active-bg:    $chaos_violet !default;
+
+$navbar-default-brand-hover-color: $navbar-default-link-hover-color;
+
+$navbar-default-toggle-hover-bg:          #ddd !default;
+$navbar-default-toggle-icon-bar-bg:       #fff !default;
+$navbar-default-toggle-icon-bar-hover-bg: #888 !default;
+$navbar-default-toggle-border-color:      #ddd !default;
+
+
+//-------------------------------------------------------------
+// Tooltips
+//-------------------------------------------------------------
+
+$tooltip-max-width:           16em !default;
+$tooltip-color:               #000 !default;
+$tooltip-bg:                  #fff !default;
+$tooltip-opacity:             1 !default;
+
+$tooltip-arrow-width:         5px !default;
+$tooltip-arrow-color:         $tooltip-bg !default;
+
+
+//-------------------------------------------------------------
+// Typography
+//-------------------------------------------------------------
 
 $icon-font-path: "fonts/" !default;
 
 $font-family-sans-serif:
     system, -apple-system, BlinkMacSystemFont, "San Francisco",
     "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+
+$font-size-base:          18px !default;
+
 
 @import "bootstrap/variables";
