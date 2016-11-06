@@ -136,12 +136,11 @@ $chaosclock-logo-width: 100px;
     hr {
         display: block;
         height: 1px;
-        margin: 0;
+        margin: 0 auto;
         padding: 0;
         background-color: #303030;
         @include gradient-horizontal-three-colors(#000, #303030, 50%, #000);
         width: 66%;
-        left: 17%;
         position: relative;
         border: none;
     }
@@ -473,6 +472,10 @@ $be-logo-width: 179px;
 
     h1 {
         margin: 0 0 50px;
+    }
+
+    a {
+        display: inline-block;
     }
 
     .logo {
