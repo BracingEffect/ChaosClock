@@ -54,6 +54,10 @@ a {
 
     &:hover, &:focus {
         text-decoration: underline;
+
+        .background-image {
+            @include opacity(0.8);
+        }
     }
 }
 
@@ -238,10 +242,6 @@ $be-logo-width: 179px;
             width: $be-logo-width;
             height: $be-logo-height;
         }
-
-        span {
-            margin-left: 0.5em;
-        }
     }
 
     .navbar-nav > li > a {
@@ -358,13 +358,13 @@ $be-logo-width: 179px;
             overflow: hidden;
             z-index: 101;
 
+            cursor: pointer;
+
             height: ($iphone_screen_height / $iphone_height) * 100%;
             width: ($iphone_screen_width / $iphone_width) * 100%;
 
             top: ($iphone_bezel_height / $iphone_height) * 100%;
             left: ($iphone_bezel_width / $iphone_width) * 100%;
-
-            cursor: pointer;
 
             .demovideo {
                 height: 100%;
