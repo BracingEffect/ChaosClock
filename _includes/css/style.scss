@@ -6,8 +6,6 @@
 
 $badge_height: 40;
 $badge_width: 135;
-$badge_container_height: $badge_height;
-$badge_container_width: $badge_width;
 
 $iphone_screen_height: 568;
 $iphone_screen_width: 320;
@@ -15,8 +13,6 @@ $iphone_bezel_height: 93;
 $iphone_bezel_width: 24;
 $iphone_height: $iphone_screen_height + ($iphone_bezel_height * 2); // 754;
 $iphone_width: $iphone_screen_width + ($iphone_bezel_width * 2); // 368;
-
-$iphone_breakpoint: $iphone_width / (1 - ($grid-gutter-width / $screen-sm-min));
 
 
 //-------------------------------------------------------------
@@ -35,7 +31,6 @@ body {
 }
 
 body {
-    background-color: $body-bg;
     position: relative;
 
     -webkit-font-smoothing: antialiased;
@@ -46,11 +41,11 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 100;
     font-variant: small-caps;
 
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
-i, em {
+em, i {
     font-style: italic;
 }
 
@@ -80,18 +75,20 @@ a {
     background-position: 50% 50%;
     background-size: 100% auto;
     background-repeat: no-repeat;
-    color: transparent;
     display: inline-block;
-    line-height: 1em;
     vertical-align: middle;
 }
 
 .section-image {
+    background-color: transparent;
     background-position: 50% 50%;
     background-size: 100% auto;
     @include background-size(cover);
     background-repeat: no-repeat;
+    display: inline-block;
     vertical-align: middle;
+    min-height: 100%;
+    min-width: 100%;
 }
 
 .spacer {
@@ -159,19 +156,39 @@ $chaosclock-logo-width: 100px;
     }
 }
 
-.col-md-left {
-    @media (min-width: $screen-md-min) {
-        float: left;
-        * { text-align: right; }
-        div { float: right; }
-    }
-}
+$sizes: ('xs', 'sm', 'md', 'lg');
+$media-sizes: (
+    xs: $screen-xs-min,
+    sm: $screen-sm-min,
+    md: $screen-md-min,
+    lg: $screen-lg-min
+);
 
-.col-md-right {
-    @media (min-width: $screen-md-min) {
-        float: right;
-        * { text-align: left; }
-        div { float: left; }
+@each $size in $sizes {
+    .col-#{$size}-left {
+        @media (min-width: map-get($media-sizes, $size)) {
+            float: left;
+            & > * { text-align: right; }
+        }
+    }
+
+    .col-#{$size}-right {
+        @media (min-width: map-get($media-sizes, $size)) {
+            float: right;
+            & > * { text-align: left; }
+        }
+    }
+
+    .#{$size}-pull-right {
+        @media (min-width: map-get($media-sizes, $size)) {
+            float: right;
+        }
+    }
+
+    .#{$size}-pull-left {
+        @media (min-width: map-get($media-sizes, $size)) {
+            float: left;
+        }
     }
 }
 
@@ -304,6 +321,10 @@ $be-logo-width: 179px;
         font-size: 2.5em;
 
         @media (min-width: $screen-xs-min) {
+            font-size: 3em;
+        }
+
+        @media (min-width: $screen-lg-min) {
             font-size: 3.5em;
         }
 
@@ -312,6 +333,8 @@ $be-logo-width: 179px;
         @media (min-width: $screen-md-min) {
             margin-top: #{$iphone_bezel_height}px;
         }
+
+        white-space: nowrap;
     }
 
     .description {
@@ -349,7 +372,7 @@ $be-logo-width: 179px;
             }
         }
 
-        @media (min-width: #{$iphone_breakpoint}px) {
+        @media (min-width: $screen-xs-min) {
             height: #{$iphone_height}px;
             width: #{$iphone_width}px;
 
@@ -369,21 +392,16 @@ $be-logo-width: 179px;
     }
 
     .badge-container {
-        height: #{$badge_container_height}px;
-        width: #{$badge_container_width}px;
-
         margin: 40px auto 0 auto;
 
         @media (min-width: $screen-md-min) {
             margin: -#{$iphone_bezel_height + $badge_height}px 0 #{$iphone_bezel_height + $badge_height}px 0;
         }
 
-        .itunes-link {
-
-            .appstore-badge {
-                width: #{$badge_width}px;
-                height: #{$badge_height}px;
-            }
+        .itunes-link, .appstore-badge {
+            display: inline-block;
+            width: #{$badge_width}px;
+            height: #{$badge_height}px;
         }
     }
 }

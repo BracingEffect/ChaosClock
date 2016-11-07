@@ -6,15 +6,11 @@ jQuery(document).ready(function($) {
         $navbarContent = $('#top-navbar-content'),
         $days = $('td.day');
 
-    $('.gregorian-to-discordian-calendar [data-toggle="tooltip"]').tooltip({
-        container : '.gregorian-to-discordian-calendar'
+    $navbarContent.localScroll({
+        filter:'.smoothScroll',
+        duration: 300,
+        hash: true
     });
-
-    $('.discordian-to-std-scale [data-toggle="tooltip"]').tooltip({
-        container : '.discordian-to-std-scale'
-    });
-
-    $navbarContent.localScroll({filter:'.smoothScroll', duration: 300, hash: true});
 
     $navbarContent.on('hide.bs.collapse', function () {
         $navbar.removeClass('expanded');
@@ -33,6 +29,14 @@ jQuery(document).ready(function($) {
     };
     updateNavbarTransparency();
     $window.scroll(updateNavbarTransparency);
+
+    $('.gregorian-to-discordian-calendar [data-toggle="tooltip"]').tooltip({
+        container : '.gregorian-to-discordian-calendar'
+    });
+
+    $('.discordian-to-std-scale [data-toggle="tooltip"]').tooltip({
+        container : '.discordian-to-std-scale'
+    });
 
     $days.hover(function(event) {
         try {
