@@ -4,12 +4,18 @@ jQuery(document).ready(function($) {
         $window = $(window),
         $navbar = $('#top-navbar'),
         $navbarContent = $('#top-navbar-content'),
+        $navbarToggle = $('#top-navbar-toggle'),
         $days = $('td.day');
 
     $navbarContent.localScroll({
         filter:'.smoothScroll',
         duration: 300,
-        hash: true
+        hash: true,
+        onBefore: function() {
+            if ($navbarToggle.is(':visible')) {
+                $navbarContent.collapse('hide');
+            }
+        }
     });
 
     $navbarContent.on('hide.bs.collapse', function () {
