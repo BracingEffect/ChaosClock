@@ -82,15 +82,6 @@ $link_text: #c0c0c0;
         padding: 0.1em 0 0.1em 0;
     }
 
-    .discordian-to-std-scale,
-    .discordian-to-std-units {
-
-        th h2 {
-            font-size: 1.675em;
-            margin-bottom: 0.375em;
-        }
-    }
-
     .discordian-to-std-units {
         margin: 1em 0 0 1em;
 
@@ -110,6 +101,11 @@ $link_text: #c0c0c0;
 
     .discordian-to-std-scale {
         margin: 0 auto;
+
+        th h2 {
+            font-size: 1.675em;
+            margin-bottom: 0.375em;
+        }
 
         .discordian-std-divider {
             width: 5em;

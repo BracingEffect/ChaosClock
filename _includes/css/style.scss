@@ -461,31 +461,45 @@ $be-logo-width: 179px;
     }
 }
 
-.gregorian-to-discordian-calendar {
-    font-size: 0.45em;
+.discordian-calendar {
 
-    @media (min-width: $screen-xs-min) {
-        font-size: 0.675em;
-    }
+    .gregorian-to-discordian-calendar {
+        font-size: 0.5em;
 
-    @media (min-width: $screen-sm-min) {
-        font-size: 0.75em;
-    }
+        @media (min-width: $screen-xs-min) {
+            font-size: 0.675em;
+        }
 
-    @media (min-width: $screen-md-min) {
-        font-size: 1em;
+        @media (min-width: $screen-sm-min) {
+            font-size: 0.75em;
+        }
+
+        @media (min-width: $screen-md-min) {
+            font-size: 1em;
+        }
     }
 }
 
-.discordian-to-std-scale {
-    font-size: 0.75em;
+.discordian-clock {
 
-    @media (min-width: $screen-xs-min) {
-        font-size: 0.875em;
-    }
+    .discordian-to-std-scale {
+        font-size: 0.75em;
 
-    @media (min-width: $screen-sm-min) {
-        font-size: 1em;
+        @media (min-width: $screen-xs-min) {
+            font-size: 1em;
+        }
+
+        th h2 {
+            font-size: 1.15em;
+
+            @media (min-width: $screen-xs-min) {
+                font-size: 1.5em;
+            }
+
+            @media (min-width: $screen-sm-min) {
+                font-size: 1.75em;
+            }
+        }
     }
 }
 
