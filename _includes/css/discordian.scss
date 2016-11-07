@@ -108,7 +108,7 @@ $link_text: #c0c0c0;
         }
 
         .discordian-std-divider {
-            padding: 0.1em 2.25em;
+            padding: 2px 2.25em;
         }
 
         .discordian-std-divider:hover {
@@ -155,10 +155,11 @@ $link_text: #c0c0c0;
 
         tr.minute-final td.discordian-std-divider {
             background-color: #585858;
-        }
 
-        tr.minute-final td.discordian-std-divider:hover {
-            border-top: 2px solid white;
+            &:hover {
+                border-top: 1px solid white;
+                background-color: #999;
+            }
         }
     }
 }
