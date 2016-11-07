@@ -90,7 +90,7 @@ $link_text: #c0c0c0;
         }
 
         .discordian-std-divider {
-            width: 2em;
+            padding: 0 1em 0.5em 1em;
             text-align: center;
         }
 
@@ -108,7 +108,7 @@ $link_text: #c0c0c0;
         }
 
         .discordian-std-divider {
-            width: 5em;
+            padding: 0.1em 2.25em;
         }
 
         .discordian-std-divider:hover {
@@ -128,24 +128,14 @@ $link_text: #c0c0c0;
             text-align: right;
         }
 
-        .discordian-time,
-        .std-time {
-            min-width: 100px;
-        }
-
         .discordian-time {
             text-align: right;
-            padding: 0 1em 0 0;
+            padding: 0 0.5em 0 0;
         }
 
         .std-time {
             text-align: left;
-            padding: 0 0 0 1em;
-        }
-
-        tr.thud-minute td.discordian-std-divider,
-        tr.minute td.discordian-std-divider {
-            height: 0.1875em;
+            padding: 0 0 0 0.5em;
         }
 
         tbody td {

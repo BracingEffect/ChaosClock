@@ -490,11 +490,7 @@ $be-logo-width: 179px;
         }
 
         th h2 {
-            font-size: 1.15em;
-
-            @media (min-width: $screen-xs-min) {
-                font-size: 1.45em;
-            }
+            font-size: 1.375em;
 
             @media (min-width: $screen-sm-min) {
                 font-size: 1.75em;
