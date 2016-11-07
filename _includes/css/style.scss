@@ -477,6 +477,22 @@ $be-logo-width: 179px;
         @media (min-width: $screen-md-min) {
             font-size: 1em;
         }
+
+        th h2 {
+            font-size: 1.25em;
+
+            @media (min-width: $screen-sm-min) {
+                font-size: 1.75em;
+            }
+        }
+
+        th h3 {
+            font-size: 1em;
+
+            @media (min-width: $screen-sm-min) {
+                font-size: 1.15em;
+            }
+        }
     }
 }
 
@@ -490,7 +506,7 @@ $be-logo-width: 179px;
         }
 
         th h2 {
-            font-size: 1.375em;
+            font-size: 1.25em;
 
             @media (min-width: $screen-sm-min) {
                 font-size: 1.75em;
