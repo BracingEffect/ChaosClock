@@ -321,7 +321,7 @@ $be-logo-width: 179px;
         font-size: 2.5em;
 
         @media (min-width: $screen-xs-min) {
-            font-size: 3em;
+            font-size: 2.8em;
         }
 
         @media (min-width: $screen-lg-min) {
@@ -465,6 +465,10 @@ $be-logo-width: 179px;
     font-size: 0.45em;
 
     @media (min-width: $screen-xs-min) {
+        font-size: 0.675em;
+    }
+
+    @media (min-width: $screen-sm-min) {
         font-size: 0.75em;
     }
 
