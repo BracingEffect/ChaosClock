@@ -20,8 +20,9 @@ $brand-info:    #5bc0de !default;
 $brand-warning: #f0ad4e !default;
 $brand-danger:  #d9534f !default;
 
-$text-color:    #f8f8f8 !default;
-$subtle-color:  darken($text-color, 33%) !default;
+$text-color:        #f8f8f8 !default;
+$text-shadow-color: #484848 !default;
+$subtle-color:      darken($text-color, 33%) !default;
 
 $body-bg:       #000 !default;
 
@@ -99,10 +100,10 @@ $navbar-default-link-active-bg:    $chaos_violet !default;
 
 $navbar-default-brand-hover-color: $navbar-default-link-hover-color;
 
-$navbar-default-toggle-hover-bg:          #ddd !default;
+$navbar-default-toggle-hover-bg:          #fff !default;
 $navbar-default-toggle-icon-bar-bg:       #fff !default;
-$navbar-default-toggle-icon-bar-hover-bg: #888 !default;
-$navbar-default-toggle-border-color:      #ddd !default;
+$navbar-default-toggle-icon-bar-hover-bg: $text-shadow-color;
+$navbar-default-toggle-border-color:      #fff !default;
 
 
 //-------------------------------------------------------------

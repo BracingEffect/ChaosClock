@@ -53,7 +53,6 @@ a {
     text-decoration: none;
 
     &:hover, &:focus {
-        text-decoration: underline;
 
         .background-image {
             @include opacity(0.8);
@@ -225,7 +224,7 @@ $be-logo-width: 179px;
 .navbar-default {
     border-bottom: 0;
 
-    @include text-shadow(1px 1px 1px rgba(0,0,0,0.5));
+    @include text-shadow(1px 1px 0 $text-shadow-color);
 
     .navbar-toggle:hover, .navbar-toggle:focus {
 
@@ -452,7 +451,7 @@ $be-logo-width: 179px;
 
 
 //-------------------------------------------------------------
-// Discordian Calendar and Clock
+// Discordian Calendar & Clock
 //-------------------------------------------------------------
 
 #calendar, #clock {
@@ -521,7 +520,6 @@ $be-logo-width: 179px;
 //-------------------------------------------------------------
 
 #contact {
-
     padding: 0 0 60px;
 
     h1 {
