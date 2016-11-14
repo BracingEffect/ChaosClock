@@ -121,6 +121,7 @@ $chaosclock-logo-height: 100px;
 $chaosclock-logo-width: 100px;
 
 .section {
+    padding: 100px 0;
 
     p {
         margin: 0 0 25px;
@@ -131,7 +132,7 @@ $chaosclock-logo-width: 100px;
     position: relative;
 
     padding: ($chaosclock-logo-height / 2) 0;
-    margin: 100px 0;
+    margin: 0;
 
     hr {
         display: block;
@@ -320,7 +321,7 @@ $be-logo-width: 179px;
 //-------------------------------------------------------------
 
 #home {
-    padding-top: 100px;
+    padding: 100px 0 0;
 
     h1 {
         font-size: 2.5em;
@@ -526,7 +527,7 @@ $be-logo-width: 179px;
 //-------------------------------------------------------------
 
 #contact {
-    padding: 0 0 60px;
+    padding: 100px 0 60px;
 
     h1 {
         margin: 0 0 50px;
